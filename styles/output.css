@@ -2298,6 +2298,11 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
 }
 
+.\!text-custom-yellow {
+  --tw-text-opacity: 1 !important;
+  color: rgb(241 202 57 / var(--tw-text-opacity)) !important;
+}
+
 .text-\[\#336699\]\/\[\.35\] {
   color: rgb(51 102 153 / .35);
 }
