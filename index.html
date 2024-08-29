@@ -46,10 +46,99 @@
       </div>
 
     </div>
+
   </header>
   <!-- FIM HEADER -->
 
-  <h2 class="text-2xl md:text-3xl font-bold text-center mt-9 mb-6 text-custom-yellow">
+  <nav class="bg-white text-custom-yellow">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+  
+        <!-- mobile menu icon -->
+        <div class="md:hidden flex justify-center w-full">
+          <button type="button" class="mobile-menu-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+            </svg>
+          </button>
+        </div>
+  
+        <div class="hidden md:flex md:flex-row flex-col items-center justify-center space-x-1 pb-3 md:pb-0 navigation-menu w-full">
+          <a href="#home" class="py-2 px-3 block font-bold">HOME</a>
+          <a href="#" class="py-2 px-3 block font-bold">SOBRE</a>
+          <!-- Dropdown menu -->
+          <div class="relative">
+            <button type="button" class="dropdown-toggle py-2 px-3 hover:bg-sky-800 flex items-center gap-2 rounded">
+              <span class="pointer-events-none select-none font-bold">SEÇÕES</span>
+              <svg class="w-3 h-3 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+            <div class="dropdown-menu absolute hidden bg-white text-green-700 rounded-b-lg pb-2 w-48">
+              <a href="#TAPIOCAS" class="block px-6 py-2 font-bold">TAPIOCAS</a>
+              <a href="#sanduiches1" class="block px-6 py-2 font-bold">SANDUÍCHES TRADICIONAIS</a>
+              <a href="#sucos" class="block px-6 py-2 font-bold">SUCOS</a>
+              <a href="#vitaminas" class="block px-6 py-2 font-bold">VITAMINAS</a>
+              <a href="#açai" class="block px-6 py-2 font-bold">AÇAI</a>
+              <a href="#frutaria" class="block px-6 py-2 font-bold">FRUTARIA</a>
+              <a href="#sobremesas" class="block px-6 py-2 font-bold">SOBREMESAS</a>
+              <a href="#sanduiches2" class="block px-6 py-2 font-bold">SANDUÍCHES NATURAIS</a>
+              <a href="#beirutes" class="block px-6 py-2 font-bold">BEIRUTES</a>
+              <a href="#hamburgueria" class="block px-6 py-2 font-bold">HAMBURGUERIA</a>
+              <a href="#pratosdodia" class="block px-6 py-2 font-bold">PRATOS DO DIA</a>
+              <a href="#saladas" class="block px-6 py-2 font-bold">SALADAS</a>
+              <a href="#pratos" class="block px-6 py-2 font-bold">PRATOS</a>
+              <a href="#alacarte" class="block px-6 py-2 font-bold">À LA CARTE</a>
+              <a href="#porçoes" class="block px-6 py-2 font-bold">PORÇÕES</a>
+              <a href="#bebidas" class="block px-6 py-2 font-bold">BEBIDAS</a>
+            </div>
+          </div>
+          <a href="#" class="py-2 px-3 block font-bold">CONTATO</a>
+        </div>
+    </div>
+</nav>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+  dropdownToggles.forEach((toggle) => {
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation(); // Evita propagação do evento
+
+      const dropdownMenu = toggle.nextElementSibling;
+
+      if (dropdownMenu.classList.contains("hidden")) {
+        document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+          menu.classList.add("hidden");
+        });
+
+        dropdownMenu.classList.remove("hidden");
+      } else {
+        dropdownMenu.classList.add("hidden");
+      }
+    });
+  });
+
+  window.addEventListener("click", function (e) {
+    if (!e.target.matches(".dropdown-toggle")) {
+      document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+        if (!menu.contains(e.target)) {
+          menu.classList.add("hidden");
+        }
+      });
+    }
+  });
+
+  const mobileMenuButton = document.querySelector('.mobile-menu-button');
+  const mobileMenu = document.querySelector('.navigation-menu');
+
+  mobileMenuButton.addEventListener('click', (e) => {
+    mobileMenu.classList.toggle('hidden');
+  });
+});
+  </script>
+
+  <h2 class="text-2xl md:text-3xl font-bold text-center mt-9 mb-6 text-custom-yellow" id="home">
     Conheça nosso menu
   </h2>
 
@@ -496,7 +585,7 @@
 
     </main>
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="TAPIOCAS">
       <h2 class="text-4xl mt-4 mb-4 font-bold text-custom-yellow text-center">
         TAPIOCAS
       </h2>
@@ -796,7 +885,7 @@
     <!-- FIM GRID Tapiocas Doces -->
     <!-- FIM GRID Tapiocas -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="sanduiches1">
       <h2 class="text-4xl mt-4 mb-4 font-bold text-green-700 text-center">
         SANDUÍCHES <span class="text-2xl font-bold italic text-black !text-black">Tradicionais</span>
       </h2>
@@ -1197,7 +1286,7 @@
     </div>
     <!-- FIM GRID Sanduiches -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="sucos">
       <h2 class="text-4xl mt-4 mb-4 font-bold text-custom-yellow text-center">
         Sucos
       </h2>
@@ -1705,7 +1794,7 @@
     <br>
     <!-- FIM DAS OBSERVAÇÕES SUCOS -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="vitaminas">
       <h2 class="text-4xl mt-4 mb-4 font-bold text-green-700 text-center">
         VITAMINAS <span class="text-2xl font-bold italic text-black !text-black">e sucos especiais</span>
       </h2>
@@ -2016,7 +2105,7 @@
     </div>
     <!-- FIM OBSERVAÇÕES -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="açai">
       <h2 class="text-4xl mt-4 mb-4 font-bold text-green-700 text-center">
         AÇAI<span class="text-2xl font-bold italic text-black !text-black"> na tigela</span>
       </h2>
@@ -2248,7 +2337,7 @@
     </div>
     <!-- FIM GRID AÇAi -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="frutaria">
       <h2 class="text-3xl mt-4 mb-4 font-bold text-custom-yellow text-center">
         FRUTARIA
       </h2>
@@ -2462,7 +2551,7 @@
     </div>
     <!-- FIM GRID FRUTARIA -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="sobremesas">
       <h2 class="text-3xl mt-4 mb-4 font-bold italic text-green-700 text-center">
         SOBREMESAS
       </h2>
@@ -2637,7 +2726,7 @@
     </div>
     <!-- GRID SANDUICHES NATURAIS -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="sanduiches2">
       <h2 class="text-4xl mt-4 mb-4 font-bold text-green-700 text-center">
         SANDUICHES
       </h2>
@@ -2781,7 +2870,7 @@
     </div>
     <!-- FIM GRID SANDUICHES -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="beirutes">
       <h2 class="text-4xl mt-4 mb-4 font-bold text-green-700 text-center">
         BEIRUTES
       </h2>
@@ -3054,7 +3143,7 @@
     </div>
     <!-- FIM GRID BEIRUTES -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="hamburgueria">
       <h2 class="text-4xl mt-4 mb-4 font-bold italic text-custom-yellow text-center">
         HAMBURGUERIA
       </h2>
@@ -4232,7 +4321,7 @@
     <!-- FIM GRID ADICIONAIS -->
     <!-- FIM GRID HAMBURGUER -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="pratosdodia">
       <h2 class="text-4xl mt-4 mb-4 font-bold italic text-green-700 text-center">
         PRATOS DO DIA
       </h2>
@@ -5114,7 +5203,7 @@
     </div>
     <!-- FIM GRID PRATOS DO DIA -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="saladas">
       <h2 class="text-3xl mt-4 mb-4 font-bold italic text-green-700 text-center">
         SALADAS
       </h2>
@@ -5336,7 +5425,7 @@
     </div>
     <!-- FIM GRID SALADAS -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="pratos">
       <h2 class="text-4xl mt-4 mb-4 font-bold text-custom-yellow text-center">
         COMERCIAIS
       </h2>
@@ -5884,7 +5973,7 @@
     </div>
     <!-- FIM GRID COMERCIAIS -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="alacarte">
       <h2 class="text-4xl mt-4 mb-4 font-bold italic text-green-700 text-center">
         À LA CARTE
       </h2>
@@ -6700,7 +6789,7 @@
     </div>
     <!-- FIM GRID À LA CARTE -->
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="porçoes">
       <h2 class="text-4xl mt-4 mb-4 font-bold text-green-700 text-center">
         PORÇÕES
       </h2>
@@ -7339,7 +7428,7 @@
     <!-- FIM GRID PORÇÕES -->
 
 
-    <div class="mx-auto max-w-7xl px-2 my-2">
+    <div class="mx-auto max-w-7xl px-2 my-2" id="bebidas">
       <h2 class="text-4xl mt-4 mb-4 font-bold text-green-700 text-center">
         BEBIDAS
       </h2>
